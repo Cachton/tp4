@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs3acxfnoy8mq"]
+
+[ext_resource type="Texture2D" uid="uid://jk7lriarqk1v" path="res://assets/img/inventaire/dague_slot_empty.png" id="1_sx1pp"]
+
+[node name="inv_menu_magicien" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(22, 22)
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sx1pp")
+centered = false

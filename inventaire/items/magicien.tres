@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventaire_item" load_steps=3 format=3 uid="uid://cfqrsxmryauy8"]
+
+[ext_resource type="Script" uid="uid://cywkiodxsy7u0" path="res://scripts/inventaire_item.gd" id="1_wtln8"]
+[ext_resource type="Texture2D" uid="uid://dtlhuqt3arcl3" path="res://assets/img/kenney_tiny-dungeon/Tilemap/tilemap.png" id="2_6ek21"]
+
+[resource]
+script = ExtResource("1_wtln8")
+name = "Magicien"
+texture = ExtResource("2_6ek21")
+metadata/_custom_type_script = "uid://cywkiodxsy7u0"

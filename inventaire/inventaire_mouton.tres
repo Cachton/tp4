@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=4 format=3 uid="uid://dtnysvj0rtxrw"]
+
+[ext_resource type="Script" uid="uid://cywkiodxsy7u0" path="res://scripts/inventaire_item.gd" id="1_sm2tf"]
+[ext_resource type="Resource" uid="uid://cfqrsxmryauy8" path="res://inventaire/items/magicien.tres" id="2_dhurd"]
+[ext_resource type="Script" uid="uid://btbckem2oe8bp" path="res://scripts/inventaire.gd" id="3_au3ap"]
+
+[resource]
+script = ExtResource("3_au3ap")
+items = Array[ExtResource("1_sm2tf")]([ExtResource("2_dhurd"), null, null])
+metadata/_custom_type_script = "uid://btbckem2oe8bp"

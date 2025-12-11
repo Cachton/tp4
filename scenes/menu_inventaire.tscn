@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://by444yvkm21je"]
+
+[ext_resource type="Script" uid="uid://58aw4xkgtncj" path="res://scripts/menu_inventaire.gd" id="1_33udg"]
+[ext_resource type="PackedScene" uid="uid://bpf0ii380g3v3" path="res://scenes/inv_menu_magicien.tscn" id="2_rn500"]
+[ext_resource type="PackedScene" uid="uid://btt0bems5rcju" path="res://scenes/inv_menu_homme.tscn" id="3_xr4hj"]
+[ext_resource type="PackedScene" uid="uid://cs3acxfnoy8mq" path="res://scenes/inv_menu_dague.tscn" id="4_ia8t6"]
+
+[node name="menu_inventaire_vide" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 59.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+script = ExtResource("1_33udg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 1)
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -11.0
+offset_right = 17.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 2.5)
+columns = 3
+
+[node name="inv_menu_magicien" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rn500")]
+layout_mode = 2
+
+[node name="inv_menu_homme" parent="NinePatchRect/GridContainer" instance=ExtResource("3_xr4hj")]
+layout_mode = 2
+
+[node name="inv_menu_magicien2" parent="NinePatchRect/GridContainer" instance=ExtResource("4_ia8t6")]
+layout_mode = 2

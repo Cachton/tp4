@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmhmcwsaxopp1"]
+
+[ext_resource type="Script" uid="uid://c554kacl8bcb7" path="res://scripts/level_03.gd" id="1_cr54n"]
+[ext_resource type="Script" uid="uid://dpt04k8r3bxjo" path="res://scripts/door_message.gd" id="1_twd1s"]
+[ext_resource type="AudioStream" uid="uid://cmrmkqs0l5bqv" path="res://assets/audio/sfx_sheep_mod_01.wav" id="2_ao0la"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cr54n"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cr54n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -772.0
+offset_top = 154.0
+offset_right = -558.0
+offset_bottom = 185.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2.015, 2.015)
+text = "Youpi!!!"
+
+[node name="sfx_beh_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ao0la")
+pitch_scale = 2.0
+
+[node name="Door_message" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 31.0
+offset_top = -73.0
+offset_right = 71.0
+offset_bottom = -33.0
+script = ExtResource("1_twd1s")
+
+[node name="Label" type="Label" parent="Door_message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = 236.0
+offset_right = 982.0
+offset_bottom = 363.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tu est le plus grand mounetonneu au monde!!!"
+label_settings = SubResource("LabelSettings_cr54n")
+horizontal_alignment = 1

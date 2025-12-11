@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://btt0bems5rcju"]
+
+[ext_resource type="Texture2D" uid="uid://ccq2qsp5nky4" path="res://assets/img/inventaire/homme_slot_empty.png" id="1_sk334"]
+
+[node name="inv_menu_magicien" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(22, 22)
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sk334")
+centered = false
