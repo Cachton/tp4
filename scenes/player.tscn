@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://252oqtjtomkj" path="res://scripts/message_f.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://wjf2bvn2dpy2" path="res://assets/audio/sfx_sheep_mod_02.wav" id="7_smehm"]
 [ext_resource type="Script" uid="uid://d0lsik32t4dcy" path="res://scripts/message_e.gd" id="8_smehm"]
-[ext_resource type="PackedScene" uid="uid://bmhmcwsaxopp1" path="res://scenes/level_03.tscn" id="9_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://bmhmcwsaxopp1" path="res://scenes/endscene.tscn" id="9_ur7pv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(13.1883, 10.7299)
