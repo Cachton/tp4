@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dvrkdo25sm6hg"]
+[gd_scene load_steps=34 format=4 uid="uid://dvrkdo25sm6hg"]
 
 [ext_resource type="Texture2D" uid="uid://dbtwe7c87esrq" path="res://assets/img/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_fevqv"]
 [ext_resource type="PackedScene" uid="uid://bti60mihju0co" path="res://scenes/coin_entity.tscn" id="2_1k21b"]
@@ -279,9 +279,6 @@ size = Vector2(7.5, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpl26"]
 size = Vector2(31, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k21b"]
-size = Vector2(32, 20)
 
 [node name="level_02" type="Node2D"]
 
@@ -626,12 +623,6 @@ script = ExtResource("18_7r6rd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zone_message"]
 position = Vector2(64, -69)
 shape = SubResource("RectangleShape2D_fpl26")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="zone_message"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_message/StaticBody2D"]
-position = Vector2(64, -75)
-shape = SubResource("RectangleShape2D_1k21b")
 
 [node name="Door_message" type="Control" parent="."]
 visible = false

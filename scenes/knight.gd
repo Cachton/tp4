@@ -21,6 +21,7 @@ func _on_body_exited(_body: Node2D) -> void:
 	
 func _unhandled_input(event):
 	if player_in and HUD.potion_obtenue and event.is_action_pressed("e"):
+		HUD.clef_obtenue = true
 		message_E.hide_message_E()
 		knight_node.hide_door_label()
 		knight_node2.show_door_label()

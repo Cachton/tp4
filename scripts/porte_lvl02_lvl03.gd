@@ -4,6 +4,6 @@ extends Area2D
 @onready var Door_node = get_node("../Door_message") 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and HUD.clef_obtenue:
 		var endscene = load("res://scenes/endscene.tscn")
 		get_tree().change_scene_to_packed(endscene)

@@ -10,5 +10,4 @@ func _on_body_exited(_body: Node2D) -> void:
 	Door_node.hide_door_label()
 
 func clear_porte():
-	print("couilles")
 	queue_free()
