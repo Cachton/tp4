@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dvrkdo25sm6hg"]
+[gd_scene load_steps=25 format=4 uid="uid://dvrkdo25sm6hg"]
 
 [ext_resource type="Texture2D" uid="uid://dbtwe7c87esrq" path="res://assets/img/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_fevqv"]
 [ext_resource type="Script" uid="uid://ciry0ht3l8xrx" path="res://scripts/ladder_01.gd" id="3_ao0la"]
@@ -9,13 +9,11 @@
 [ext_resource type="Script" uid="uid://dk8ohtxw5cpw" path="res://scripts/ladder_06.gd" id="8_m0ibc"]
 [ext_resource type="Script" uid="uid://dxvr6v4mauikf" path="res://scripts/porte_lvl02_lvl03.gd" id="9_0hxtc"]
 [ext_resource type="AudioStream" uid="uid://bccv7p7avncw8" path="res://assets/audio/sfx_door.mp3" id="10_m0ibc"]
-[ext_resource type="Script" uid="uid://bibgqoe51cmsq" path="res://scripts/porte_back.gd" id="11_m0ibc"]
+[ext_resource type="Script" uid="uid://bibgqoe51cmsq" path="res://scenes/porte_back.gd" id="11_m0ibc"]
 [ext_resource type="PackedScene" uid="uid://cev418y48vcit" path="res://scenes/player.tscn" id="12_kcvq7"]
 [ext_resource type="Script" uid="uid://33yiuds6880e" path="res://scripts/zone_message.gd" id="12_yv1v3"]
 [ext_resource type="Script" uid="uid://dpt04k8r3bxjo" path="res://scripts/door_message.gd" id="13_h1rrg"]
-[ext_resource type="Script" uid="uid://c13lt3kpy5i7o" path="res://scripts/zone_dialogue_rat.gd" id="14_fpl26"]
-[ext_resource type="Script" uid="uid://bhpg0rriks7x1" path="res://scripts/rat_message.gd" id="14_h1rrg"]
-[ext_resource type="Texture2D" uid="uid://cleimx87kuo6u" path="res://assets/img/kenney_tiny-dungeon/Tiles/tile_0124.png" id="15_fevqv"]
+[ext_resource type="PackedScene" uid="uid://i015x755gt13" path="res://knight_entity.tscn" id="14_h1rrg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fy0s1"]
 texture = ExtResource("1_fevqv")
@@ -229,28 +227,6 @@ texture = ExtResource("1_fevqv")
 [sub_resource type="TileSet" id="TileSet_ucrpc"]
 sources/0 = SubResource("TileSetAtlasSource_ms38a")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv1v3"]
-size = Vector2(22.5, 17.5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1k21b"]
-atlas = ExtResource("15_fevqv")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f8yok"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1k21b")
-}],
-"loop": true,
-"name": &"magicien_existe",
-"speed": 5.0
-}]
-
-[sub_resource type="LabelSettings" id="LabelSettings_fevqv"]
-font_size = 11
-shadow_size = 0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao0la"]
 size = Vector2(83.0881, 3.21026)
 
@@ -265,6 +241,10 @@ size = Vector2(31, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k21b"]
 size = Vector2(32, 20)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fevqv"]
+font_size = 11
+shadow_size = 0
+
 [node name="level_02" type="Node2D"]
 
 [node name="map" type="TileMapLayer" parent="."]
@@ -275,46 +255,8 @@ tile_set = SubResource("TileSet_rqd2m")
 tile_map_data = PackedByteArray("AAAWAAoAAAAJAAMAAAAWAAQAAAAJAAMAAAAWAP7/AAAJAAMAAAAJAP7/AAAJAAMAAAAJAAQAAAAJAAMAAAAJAAoAAAAJAAMAAAAVAAgAAAAGAAMAAAAzABwAAAAIAAQAAABRABwAAAAIAAQAAABRAAQAAAAIAAQAAAAzAAQAAAAIAAQAAAAzAOv/AAAIAAQAAABRAOv/AAAIAAQAAAA1AOv/AAAFAAgAAAA=")
 tile_set = SubResource("TileSet_ucrpc")
 
-[node name="rat_message" type="Area2D" parent="."]
-position = Vector2(1296, 506)
-script = ExtResource("14_fpl26")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rat_message"]
-position = Vector2(68.25, -65.75)
-shape = SubResource("RectangleShape2D_yv1v3")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rat_message"]
-position = Vector2(71, -65)
-scale = Vector2(0.812502, 0.812502)
-sprite_frames = SubResource("SpriteFrames_f8yok")
-animation = &"magicien_existe"
-
-[node name="Rat_message" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1316.0
-offset_top = 437.0
-offset_right = 1356.0
-offset_bottom = 477.0
-script = ExtResource("14_h1rrg")
-
-[node name="Label" type="Label" parent="Rat_message"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.5
-offset_top = 8.0
-offset_right = 102.5
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Vous auriez pas une pièce à offrir?"
-label_settings = SubResource("LabelSettings_fevqv")
-horizontal_alignment = 1
+[node name="knight_entity" parent="." instance=ExtResource("14_h1rrg")]
+position = Vector2(1367, 441)
 
 [node name="player" parent="." instance=ExtResource("12_kcvq7")]
 position = Vector2(256, 224)
@@ -529,8 +471,6 @@ text = "La porte semble barrée"
 label_settings = SubResource("LabelSettings_fevqv")
 horizontal_alignment = 1
 
-[connection signal="body_entered" from="rat_message" to="rat_message" method="_on_body_entered"]
-[connection signal="body_exited" from="rat_message" to="rat_message" method="_on_body_exited"]
 [connection signal="body_entered" from="ladder01" to="ladder01" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder01" to="ladder01" method="_on_body_exited"]
 [connection signal="body_entered" from="ladder02" to="ladder02" method="_on_body_entered"]

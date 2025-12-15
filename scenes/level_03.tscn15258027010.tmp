@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dvrkdo25sm6hg"]
+[gd_scene load_steps=24 format=4 uid="uid://dvrkdo25sm6hg"]
 
 [ext_resource type="Texture2D" uid="uid://dbtwe7c87esrq" path="res://assets/img/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_fevqv"]
 [ext_resource type="Script" uid="uid://ciry0ht3l8xrx" path="res://scripts/ladder_01.gd" id="3_ao0la"]
@@ -9,13 +9,13 @@
 [ext_resource type="Script" uid="uid://dk8ohtxw5cpw" path="res://scripts/ladder_06.gd" id="8_m0ibc"]
 [ext_resource type="Script" uid="uid://dxvr6v4mauikf" path="res://scripts/porte_lvl02_lvl03.gd" id="9_0hxtc"]
 [ext_resource type="AudioStream" uid="uid://bccv7p7avncw8" path="res://assets/audio/sfx_door.mp3" id="10_m0ibc"]
-[ext_resource type="Script" uid="uid://bibgqoe51cmsq" path="res://scripts/porte_back.gd" id="11_m0ibc"]
+[ext_resource type="Script" uid="uid://bibgqoe51cmsq" path="res://scenes/porte_back.gd" id="11_m0ibc"]
+[ext_resource type="Script" uid="uid://du0tlfsvmty1k" path="res://scenes/porte_back_02.gd" id="12_jjwm3"]
 [ext_resource type="PackedScene" uid="uid://cev418y48vcit" path="res://scenes/player.tscn" id="12_kcvq7"]
-[ext_resource type="Script" uid="uid://33yiuds6880e" path="res://scripts/zone_message.gd" id="12_yv1v3"]
-[ext_resource type="Script" uid="uid://dpt04k8r3bxjo" path="res://scripts/door_message.gd" id="13_h1rrg"]
-[ext_resource type="Script" uid="uid://c13lt3kpy5i7o" path="res://scripts/zone_dialogue_rat.gd" id="14_fpl26"]
-[ext_resource type="Script" uid="uid://bhpg0rriks7x1" path="res://scripts/rat_message.gd" id="14_h1rrg"]
-[ext_resource type="Texture2D" uid="uid://cleimx87kuo6u" path="res://assets/img/kenney_tiny-dungeon/Tiles/tile_0124.png" id="15_fevqv"]
+[ext_resource type="Script" uid="uid://c1aij1d21fvvy" path="res://scenes/porte_back_03.gd" id="13_yv1v3"]
+[ext_resource type="Script" uid="uid://k3h8b38jkxdb" path="res://scenes/porte_back_04.gd" id="14_fpl26"]
+[ext_resource type="Script" uid="uid://crrbumhltr3tl" path="res://scenes/porte_back_05.gd" id="15_fevqv"]
+[ext_resource type="Script" uid="uid://req44arasybb" path="res://scenes/porte_back_06.gd" id="16_fevqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fy0s1"]
 texture = ExtResource("1_fevqv")
@@ -229,28 +229,6 @@ texture = ExtResource("1_fevqv")
 [sub_resource type="TileSet" id="TileSet_ucrpc"]
 sources/0 = SubResource("TileSetAtlasSource_ms38a")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv1v3"]
-size = Vector2(22.5, 17.5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1k21b"]
-atlas = ExtResource("15_fevqv")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f8yok"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1k21b")
-}],
-"loop": true,
-"name": &"magicien_existe",
-"speed": 5.0
-}]
-
-[sub_resource type="LabelSettings" id="LabelSettings_fevqv"]
-font_size = 11
-shadow_size = 0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao0la"]
 size = Vector2(83.0881, 3.21026)
 
@@ -258,12 +236,6 @@ size = Vector2(83.0881, 3.21026)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjwm3"]
 size = Vector2(7.5, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpl26"]
-size = Vector2(31, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k21b"]
-size = Vector2(32, 20)
 
 [node name="level_02" type="Node2D"]
 
@@ -275,49 +247,8 @@ tile_set = SubResource("TileSet_rqd2m")
 tile_map_data = PackedByteArray("AAAWAAoAAAAJAAMAAAAWAAQAAAAJAAMAAAAWAP7/AAAJAAMAAAAJAP7/AAAJAAMAAAAJAAQAAAAJAAMAAAAJAAoAAAAJAAMAAAAVAAgAAAAGAAMAAAAzABwAAAAIAAQAAABRABwAAAAIAAQAAABRAAQAAAAIAAQAAAAzAAQAAAAIAAQAAAAzAOv/AAAIAAQAAABRAOv/AAAIAAQAAAA1AOv/AAAFAAgAAAA=")
 tile_set = SubResource("TileSet_ucrpc")
 
-[node name="rat_message" type="Area2D" parent="."]
-position = Vector2(1296, 506)
-script = ExtResource("14_fpl26")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rat_message"]
-position = Vector2(68.25, -65.75)
-shape = SubResource("RectangleShape2D_yv1v3")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rat_message"]
-position = Vector2(71, -65)
-scale = Vector2(0.812502, 0.812502)
-sprite_frames = SubResource("SpriteFrames_f8yok")
-animation = &"magicien_existe"
-
-[node name="Rat_message" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1316.0
-offset_top = 437.0
-offset_right = 1356.0
-offset_bottom = 477.0
-script = ExtResource("14_h1rrg")
-
-[node name="Label" type="Label" parent="Rat_message"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.5
-offset_top = 8.0
-offset_right = 102.5
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Vous auriez pas une pièce à offrir?"
-label_settings = SubResource("LabelSettings_fevqv")
-horizontal_alignment = 1
-
 [node name="player" parent="." instance=ExtResource("12_kcvq7")]
-position = Vector2(256, 224)
+position = Vector2(255, 72)
 
 [node name="lower_mur" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAIAAAAAAABAAQAAAAJAAAAAAACAAQAAAAKAAAAAAADAAQAAAALAAAAAAAEAAQAAAAIAAYAAAABAAQAAAAJAAYAAAACAAQAAAAKAAYAAAADAAQAAAALAAYAAAAEAAQAAAAIAAwAAAADAAQAAAAJAAwAAAAEAAQAAAAKAAwAAAABAAQAAAALAAwAAAABAAQAAAAUAAwAAAABAAQAAAAWAAwAAAADAAQAAAAXAAwAAAAEAAQAAAAUAAYAAAACAAQAAAAVAAYAAAADAAQAAAAWAAYAAAAEAAQAAAAUAAAAAAACAAQAAAAVAAAAAAADAAQAAAAWAAAAAAAEAAQAAAAXAAAAAAABAAQAAAAXAAYAAAABAAQAAAAMAP//AAAEAAUAAAAMAAUAAAAEAAUAAAAMAAsAAAAEAAUAAAANAP//AAADAAQAAAANAAUAAAACAAUAAAANAAsAAAABAAUAAAAOAP//AAADAAUAAAAOAAUAAAADAAUAAAAOAAsAAAADAAUAAAARAP//AAAEAAUAAAARAAUAAAAEAAUAAAARAAsAAAAEAAUAAAASAP//AAADAAQAAAASAAUAAAABAAUAAAASAAsAAAABAAUAAAATAP//AAADAAUAAAATAAUAAAADAAUAAAATAAsAAAADAAUAAAAVAAwAAAABAAUAAAAPAA4AAAAGAAMAAAAQAA4AAAAGAAMAABA0AB4AAAABAAQAAAA1AB4AAAACAAQAAAA2AB4AAAADAAQAAAA3AB4AAAAEAAQAAAA0AAYAAAABAAQAAAA1AAYAAAACAAQAAAA2AAYAAAADAAQAAAA3AAYAAAAEAAQAAABSAAYAAAABAAQAAABTAAYAAAACAAQAAABUAAYAAAADAAQAAABVAAYAAAAEAAQAAABSAB4AAAABAAQAAABTAB4AAAACAAQAAABUAB4AAAADAAQAAABVAB4AAAAEAAQAAABSAO3/AAABAAQAAABTAO3/AAACAAQAAABUAO3/AAADAAQAAABVAO3/AAAEAAQAAAA0AO3/AAABAAQAAAA1AO3/AAACAAQAAAA2AO3/AAADAAQAAAA3AO3/AAAEAAQAAAA=")
@@ -340,7 +271,7 @@ scale = Vector2(0.228673, 5.91852)
 shape = SubResource("RectangleShape2D_ao0la")
 
 [node name="spawn_point_01" type="Marker2D" parent="ladder01"]
-position = Vector2(968, -81)
+position = Vector2(968, -232)
 
 [node name="ladder02" type="Area2D" parent="."]
 script = ExtResource("4_b3w75")
@@ -350,7 +281,7 @@ position = Vector2(360, -24)
 shape = SubResource("RectangleShape2D_cr54n")
 
 [node name="spawn_point_02" type="Marker2D" parent="ladder02"]
-position = Vector2(1238, -79)
+position = Vector2(1240, -236)
 
 [node name="ladder03" type="Area2D" parent="."]
 script = ExtResource("5_8idsu")
@@ -360,7 +291,7 @@ position = Vector2(152, 72)
 shape = SubResource("RectangleShape2D_cr54n")
 
 [node name="spawn_point_03" type="Marker2D" parent="ladder03"]
-position = Vector2(963, 224)
+position = Vector2(960, 72)
 
 [node name="ladder04" type="Area2D" parent="."]
 script = ExtResource("6_2lv0n")
@@ -370,7 +301,7 @@ position = Vector2(360, 72)
 shape = SubResource("RectangleShape2D_cr54n")
 
 [node name="spawn_point_04" type="Marker2D" parent="ladder04"]
-position = Vector2(1244, 224)
+position = Vector2(1232, 72)
 
 [node name="ladder05" type="Area2D" parent="."]
 script = ExtResource("7_0hxtc")
@@ -380,7 +311,7 @@ position = Vector2(152, 168)
 shape = SubResource("RectangleShape2D_cr54n")
 
 [node name="spawn_point_05" type="Marker2D" parent="ladder05"]
-position = Vector2(967, 514)
+position = Vector2(948, 356)
 
 [node name="ladder06" type="Area2D" parent="."]
 script = ExtResource("8_m0ibc")
@@ -390,7 +321,7 @@ position = Vector2(360, 168)
 shape = SubResource("RectangleShape2D_cr54n")
 
 [node name="spawn_point_06" type="Marker2D" parent="ladder06"]
-position = Vector2(1236, 514)
+position = Vector2(1237, 362)
 scale = Vector2(1, -0.210024)
 
 [node name="porte" type="Area2D" parent="."]
@@ -398,7 +329,7 @@ position = Vector2(192, -16)
 script = ExtResource("9_0hxtc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte"]
-position = Vector2(64, -70)
+position = Vector2(64, -73)
 shape = SubResource("RectangleShape2D_jjwm3")
 
 [node name="sfx_door" type="AudioStreamPlayer2D" parent="porte"]
@@ -420,7 +351,7 @@ position = Vector2(-342, 402)
 
 [node name="porte_back_02" type="Area2D" parent="."]
 position = Vector2(1240, -256)
-script = ExtResource("11_m0ibc")
+script = ExtResource("12_jjwm3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte_back_02"]
 position = Vector2(69, -72)
@@ -434,7 +365,7 @@ position = Vector2(-981, 401)
 
 [node name="porte_back_03" type="Area2D" parent="."]
 position = Vector2(760, 144)
-script = ExtResource("11_m0ibc")
+script = ExtResource("13_yv1v3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte_back_03"]
 position = Vector2(69, -72)
@@ -448,7 +379,7 @@ position = Vector2(-501, 1)
 
 [node name="porte_back_04" type="Area2D" parent="."]
 position = Vector2(1240, 144)
-script = ExtResource("11_m0ibc")
+script = ExtResource("14_fpl26")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte_back_04"]
 position = Vector2(69, -72)
@@ -462,7 +393,7 @@ position = Vector2(-981, 1)
 
 [node name="porte_back_05" type="Area2D" parent="."]
 position = Vector2(760, 528)
-script = ExtResource("11_m0ibc")
+script = ExtResource("15_fevqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte_back_05"]
 position = Vector2(69, -72)
@@ -476,7 +407,7 @@ position = Vector2(-501, -383)
 
 [node name="porte_back_06" type="Area2D" parent="."]
 position = Vector2(1240, 528)
-script = ExtResource("11_m0ibc")
+script = ExtResource("16_fevqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="porte_back_06"]
 position = Vector2(69, -72)
@@ -488,49 +419,6 @@ stream = ExtResource("10_m0ibc")
 [node name="back_door_marker_06" type="Marker2D" parent="porte_back_06"]
 position = Vector2(-981, -383)
 
-[node name="zone_message" type="Area2D" parent="."]
-position = Vector2(192, -12)
-script = ExtResource("12_yv1v3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_message"]
-position = Vector2(64, -69)
-shape = SubResource("RectangleShape2D_fpl26")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="zone_message"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_message/StaticBody2D"]
-position = Vector2(64, -75)
-shape = SubResource("RectangleShape2D_1k21b")
-
-[node name="Door_message" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 223.0
-offset_top = -85.0
-offset_right = 263.0
-offset_bottom = -45.0
-script = ExtResource("13_h1rrg")
-
-[node name="Label" type="Label" parent="Door_message"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.5
-offset_top = 8.0
-offset_right = 102.5
-offset_bottom = 57.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "La porte semble barrée"
-label_settings = SubResource("LabelSettings_fevqv")
-horizontal_alignment = 1
-
-[connection signal="body_entered" from="rat_message" to="rat_message" method="_on_body_entered"]
-[connection signal="body_exited" from="rat_message" to="rat_message" method="_on_body_exited"]
 [connection signal="body_entered" from="ladder01" to="ladder01" method="_on_body_entered"]
 [connection signal="body_exited" from="ladder01" to="ladder01" method="_on_body_exited"]
 [connection signal="body_entered" from="ladder02" to="ladder02" method="_on_body_entered"]
@@ -557,5 +445,3 @@ horizontal_alignment = 1
 [connection signal="body_exited" from="porte_back_05" to="porte_back_05" method="_on_body_exited"]
 [connection signal="body_entered" from="porte_back_06" to="porte_back_06" method="_on_body_entered"]
 [connection signal="body_exited" from="porte_back_06" to="porte_back_06" method="_on_body_exited"]
-[connection signal="body_entered" from="zone_message" to="zone_message" method="_on_body_entered"]
-[connection signal="body_exited" from="zone_message" to="zone_message" method="_on_body_exited"]

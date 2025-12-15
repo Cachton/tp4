@@ -65,5 +65,3 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("f"):
 		sfx_beh_02.play()
-
- 

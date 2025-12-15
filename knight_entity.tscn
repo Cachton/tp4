@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://i015x755gt13"]
+
+[ext_resource type="Texture2D" uid="uid://cleimx87kuo6u" path="res://assets/img/kenney_tiny-dungeon/Tiles/tile_0124.png" id="1_n53yl"]
+[ext_resource type="Script" uid="uid://c13lt3kpy5i7o" path="res://scripts/zone_dialogue_rat.gd" id="2_r18it"]
+[ext_resource type="Script" uid="uid://bhpg0rriks7x1" path="res://scripts/rat_message.gd" id="3_r18it"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he5xk"]
+atlas = ExtResource("1_n53yl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r18it"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he5xk")
+}],
+"loop": true,
+"name": &"magicien_existe",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wua"]
+size = Vector2(22, 22)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mf1s3"]
+font_size = 11
+shadow_size = 0
+
+[node name="rat_entity" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r18it")
+animation = &"magicien_existe"
+
+[node name="zone_dialogue" type="Area2D" parent="."]
+script = ExtResource("2_r18it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_dialogue"]
+shape = SubResource("RectangleShape2D_u8wua")
+
+[node name="Rat_message" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 223.0
+offset_top = -85.0
+offset_right = 263.0
+offset_bottom = -45.0
+script = ExtResource("3_r18it")
+
+[node name="Label" type="Label" parent="Rat_message"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = 94.0
+offset_right = -145.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Salut t'as une pièce pour un ptit rat ?"
+label_settings = SubResource("LabelSettings_mf1s3")
+horizontal_alignment = 1
