@@ -1,6 +1,5 @@
 extends Area2D
 @onready var message_E = get_node("../player/CharacterBody2D/message_E") 
-@onready var spawn_point_01 = get_node("../spawn_point_01") 
 var player_in = false
 @onready var player = $"../player"
 @onready var tp_point_02 = $spawn_point_02

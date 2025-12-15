@@ -1,0 +1,14 @@
+extends Area2D
+
+@onready var Door_node = get_node("../Door_message") 
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and !HUD.clef_obtenue:
+		Door_node.show_door_label()
+
+func _on_body_exited(_body: Node2D) -> void:
+	Door_node.hide_door_label()
+
+func clear_porte():
+	print("couilles")
+	queue_free()
