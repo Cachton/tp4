@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bti60mihju0co"]
+
+[ext_resource type="Script" uid="uid://bqocbwipiw88v" path="res://scenes/coin_entity.gd" id="1_x67f1"]
+[ext_resource type="Texture2D" uid="uid://dbtwe7c87esrq" path="res://assets/img/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_x67f1"]
+[ext_resource type="AudioStream" uid="uid://cxs4bvrh36fp4" path="res://assets/audio/sfx_coins.mp3" id="3_x67f1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bbps"]
+atlas = ExtResource("2_x67f1")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xv6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bbps")
+}],
+"loop": true,
+"name": &"magicien_existe",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uklht"]
+size = Vector2(18, 17)
+
+[node name="coin_entity" type="Node2D"]
+script = ExtResource("1_x67f1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4xv6t")
+animation = &"magicien_existe"
+
+[node name="zone_dialogue" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zone_dialogue"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_uklht")
+
+[node name="sfx_coins" type="AudioStreamPlayer2D" parent="zone_dialogue"]
+stream = ExtResource("3_x67f1")
+
+[connection signal="body_entered" from="zone_dialogue" to="." method="_on_zone_dialogue_body_entered"]
+[connection signal="finished" from="zone_dialogue/sfx_coins" to="." method="_on_sfx_coins_finished"]

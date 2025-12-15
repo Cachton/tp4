@@ -7,4 +7,5 @@ var player_is_in_area_E
 var player_is_in_area_F
 var homme_pose = false
 var magicien_pose = false
+var coin_present = true
 	
